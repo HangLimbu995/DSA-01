@@ -30,7 +30,7 @@
 
 //     shift() {
 //         const firstItem = this.data[0]
-//         // this.length--;
+        // this.length--;
 //         for (let i = 0; i < this.length; i++) {
 //             this.data[i] = this.data[i + 1]
 //         }
@@ -54,8 +54,8 @@
 // console.log(myNewArray.push("apple"))
 // console.log(myNewArray.push("orange"))
 // console.log(myNewArray.push("mango"))
-// // console.log(myNewArray.pop())
-// // console.log(myNewArray.shift())
+// console.log(myNewArray.pop())
+// console.log(myNewArray.shift())
 // console.log(myNewArray)
 // console.log(myNewArray.deleteByIndex(0))
 // console.log(myNewArray)
@@ -94,8 +94,8 @@
 //         }
 //     }
 
-//     numberRev(num) {
-//         // const convertToString = num.toString()
+    // numberRev(num) {
+    //     // const convertToString = num.toString()
 //         return parseInt(num.toString().split('').reverse().join(''))
 //         // const convertToArr = convertToString.split('')
 //         //     let index = 0
@@ -163,19 +163,57 @@
 // 6. Move the index forward by the chunk size to get to the next chunk.
 // 7. Return teh final array of chunks
 
-const chunkedArr = (arr, size) =>{
-let chunked = []
-let index = 0;
+// const chunkedArr = (arr, size) =>{
+// let chunked = []
+// let index = 0;
 
-while (index < arr.length) {
-    const chunk = arr.slice(index, index + size) 
+// while (index < arr.length) {
+//     const chunk = arr.slice(index, index + size) 
 
-    chunked.push(chunk)
+//     chunked.push(chunk)
 
-    index += size;
+//     index += size;
+// }
+// return chunked
+// }
+
+
+// console.log(chunkedArr([1,2,3,4,5,6,7,8],4))
+
+// #################################
+// Two Sum
+// Imagine you have a list of numbers and a target number. Your job is to find two numbers in that list that add up to the target number. You also need to tell which positions (or indexes) those two numbers are at in the list.
+
+// Example
+// If the list is [3,7,11,15] and the target is 9, then the answer would be [0,1] because 2 (at index 0) plus 7 (at index 1) equals 9.
+
+// const towSum = (arr, target) => {
+//     // let result = []
+//     for (let i = 0; i < arr.length; i++) {
+//       for(let j = 1; j < arr.length; j++) {
+//         if(arr[i]+ arr[j] === target) {
+//             return [i,j]
+//         }
+//       }
+//     }
+//     return []
+// }
+
+// Improved version fo Two sum
+const twoSum = (arr, target) => {
+  let numMap = new Map();
+
+  for(let i = 0; i < arr.length; i++) {
+    let complement = target - arr[i];
+
+    if(numMap.has(complement)) {
+      return [numMap.get(complement), i] // Return indices of the two numbers
+    } 
+
+    numMap.set(arr[i], i); // Store value and its index
+  }
+  return []
 }
-return chunked
-}
 
-
-console.log(chunkedArr([1,2,3,4,5,6,7,8],4))
+console.log(twoSum([5, 2, 7, 11], 16))
+console.log(twoSum([2,2,3, 7, 15, 15, 100, 3, 5, 1], 115));
