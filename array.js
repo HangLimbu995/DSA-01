@@ -200,20 +200,20 @@
 // }
 
 // Improved version fo Two sum
-const twoSum = (arr, target) => {
-  let numMap = new Map();
+// const twoSum = (arr, target) => {
+//   let numMap = new Map();
 
-  for(let i = 0; i < arr.length; i++) {
-    let complement = target - arr[i];
+//   for(let i = 0; i < arr.length; i++) {
+//     let complement = target - arr[i];
 
-    if(numMap.has(complement)) {
-      return [numMap.get(complement), i] // Return indices of the two numbers
-    } 
+//     if(numMap.has(complement)) {
+//       return [numMap.get(complement), i] // Return indices of the two numbers
+//     } 
 
-    numMap.set(arr[i], i); // Store value and its index
-  }
-  return []
-}
+//     numMap.set(arr[i], i); // Store value and its index
+//   }
+//   return []
+// }
 
-console.log(twoSum([5, 2, 7, 11], 16))
-console.log(twoSum([2,2,3, 7, 15, 15, 100, 3, 5, 1], 115));
+// console.log(twoSum([5, 2, 7, 11], 16))
+// console.log(twoSum([2,2,3, 7, 15, 15, 100, 3, 5, 1], 115));

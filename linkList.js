@@ -206,3 +206,42 @@
 // // console.log('count', myLinkedList.size())
 // console.log('count', myLinkedList.clear())
 // console.log(myLinkedList); // LinkedList { head: Node { head: 1, next: null }, tail: Node { head: 1, next: null }, length: 1 }
+
+
+// ###################################################
+// THIS IS "DOUBLY LINKED LIST" IMPLEMENTATION IN JAVASCRIPT
+
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+class DoublyLinkedList {
+    constructor(value) {
+        const newNode = new Node(value);
+        this.head = newNode;
+        this.tail = this.head;
+        this.length = 1;
+    }
+
+    push(value) {
+        const newNode = new Node(value);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        }
+
+        this.tail.next = newNode;
+        newNode.prev = this.tail;
+        this.tail = newNode;
+
+        this.length++;
+        return this;
+    }
+}
+
+let myDoublyLinkedList = new DoublyLinkedList(0);
+console.log(myDoublyLinkedList.push(1))

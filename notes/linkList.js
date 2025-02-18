@@ -245,3 +245,181 @@
 // ✅ Circular Linked List (where tail.next points to head)
 
 // Would you like to learn Doubly Linked Lists next? 🚀
+
+
+// Types of Linked Lists & Their Differences
+// A linked list is a linear data structure where each element (node) contains a value and a pointer to the next node. There are different types of linked lists, each with unique characteristics.
+
+// 📌 1. Singly Linked List (SLL)
+// 📝 Definition
+// A singly linked list consists of nodes, where each node has a value and a pointer to the next node. The last node points to null, indicating the end.
+
+// 🛠 Structure
+// css
+// Copy
+// Edit
+// [Head] → [Node1] → [Node2] → [Node3] → null
+// 🔹 Features
+// Each node has one pointer (next).
+// Traversal is one-directional (from head to tail).
+// Efficient for insertion at the beginning (O(1)), but deletion at the end requires O(n).
+// ⏳ Time Complexity
+// Operation	Complexity
+// Insert at head	O(1)
+// Insert at end	O(1)
+// Deletion at head	O(1)
+// Deletion at end	O(n)
+// Search	O(n)
+// 🛠 Example in JavaScript
+// javascript
+// Copy
+// Edit
+// class Node {
+//     constructor(value) {
+//         this.value = value;
+//         this.next = null;
+//     }
+// }
+
+// class SinglyLinkedList {
+//     constructor() {
+//         this.head = null;
+//         this.tail = null;
+//         this.size = 0;
+//     }
+
+//     add(value) {
+//         const newNode = new Node(value);
+//         if (!this.head) {
+//             this.head = newNode;
+//             this.tail = newNode;
+//         } else {
+//             this.tail.next = newNode;
+//             this.tail = newNode;
+//         }
+//         this.size++;
+//     }
+// }
+// 📌 2. Doubly Linked List (DLL)
+// 📝 Definition
+// A doubly linked list is similar to a singly linked list, but each node has two pointers:
+
+// next → Points to the next node.
+// prev → Points to the previous node.
+// 🛠 Structure
+// css
+// Copy
+// Edit
+// null ← [Node1] ↔ [Node2] ↔ [Node3] → null
+// 🔹 Features
+// Traversal can be done both forward and backward.
+// More memory is used (extra prev pointer).
+// Efficient deletion and insertion from both ends (O(1)).
+// ⏳ Time Complexity
+// Operation	Complexity
+// Insert at head	O(1)
+// Insert at end	O(1)
+// Deletion at head	O(1)
+// Deletion at end	O(1)
+// Search	O(n)
+// 🛠 Example in JavaScript
+// javascript
+// Copy
+// Edit
+// class Node {
+//     constructor(value) {
+//         this.value = value;
+//         this.next = null;
+//         this.prev = null;
+//     }
+// }
+
+// class DoublyLinkedList {
+//     constructor() {
+//         this.head = null;
+//         this.tail = null;
+//         this.size = 0;
+//     }
+
+//     add(value) {
+//         const newNode = new Node(value);
+//         if (!this.head) {
+//             this.head = newNode;
+//             this.tail = newNode;
+//         } else {
+//             newNode.prev = this.tail;
+//             this.tail.next = newNode;
+//             this.tail = newNode;
+//         }
+//         this.size++;
+//     }
+// }
+// 📌 3. Circular Linked List (CLL)
+// 📝 Definition
+// A circular linked list is similar to a singly linked list, but the last node points back to the head instead of null.
+
+// 🛠 Structure
+// css
+// Copy
+// Edit
+// [Node1] → [Node2] → [Node3] ↻
+// 🔹 Features
+// No null at the end; last node points to the first.
+// Can be either singly or doubly linked.
+// Useful for applications where continuous looping is needed (e.g., round-robin scheduling).
+// ⏳ Time Complexity
+// Operation	Complexity
+// Insert at head	O(1)
+// Insert at end	O(1)
+// Deletion at head	O(1)
+// Deletion at end	O(n)
+// Search	O(n)
+// 🛠 Example in JavaScript
+// javascript
+// Copy
+// Edit
+// class Node {
+//     constructor(value) {
+//         this.value = value;
+//         this.next = null;
+//     }
+// }
+
+// class CircularLinkedList {
+//     constructor() {
+//         this.head = null;
+//         this.tail = null;
+//     }
+
+//     add(value) {
+//         const newNode = new Node(value);
+//         if (!this.head) {
+//             this.head = newNode;
+//             this.tail = newNode;
+//             this.tail.next = this.head; // Points back to head
+//         } else {
+//             this.tail.next = newNode;
+//             this.tail = newNode;
+//             this.tail.next = this.head;
+//         }
+//     }
+// }
+// 📌 Differences Between Linked Lists
+// Feature	Singly Linked List	Doubly Linked List	Circular Linked List
+// Pointers per node	1 (next)	2 (next, prev)	1 (next) or 2 (next, prev)
+// Memory usage	Low	High (extra pointer)	Low
+// Traversal	One direction	Both directions	Looping
+// Insert/Delete at Head	O(1)	O(1)	O(1)
+// Insert/Delete at Tail	O(1)	O(1)	O(n) (if singly)
+// Search	O(n)	O(n)	O(n)
+// Last Node Points To	null	null	head
+// 📌 When to Use Which Linked List?
+// Use Case	Best Linked List Type
+// Simple list operations	Singly Linked List
+// Fast traversal in both directions	Doubly Linked List
+// Continuous looping (e.g., round-robin scheduling, memory buffers, games)	Circular Linked List
+// 📌 Final Thoughts
+// Singly Linked List – Simple & memory efficient.
+// Doubly Linked List – Better for frequent insertions/deletions in the middle.
+// Circular Linked List – Great for continuous looping scenarios.
+// Would you like to explore doubly circular linked lists next? 🚀
