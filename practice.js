@@ -175,3 +175,42 @@
 // }
 
 // console.log(twosum([1, 2, 3, 4, 5, 6, 7, 8, 9], 10))
+
+
+//  MaxProfit
+
+// array of prices = [5,2,3,7,9] earnings every day 
+// get the max profit from this array
+// first lets do minProfit = prices[0]
+// maxProfit  = 0
+
+// now loop thorough prices
+// get current prices 
+// update minprice with mathmin
+// get potential price which is current price  - minprice -- this is potential earnings
+
+// update max prifit with math max among maxprice and potential price
+
+// returh maxProfit
+
+const maxProfit = prices => {
+    let minProfit = prices[0]
+    let maxProfit = 0;
+
+    for (let i = 0; i < prices.length; i++) {
+        const currentPrice = prices[i] // 7,4,2,6,4
+
+        minProfit = Math.min(minProfit, currentPrice);// 7,4,2,2,2
+
+        const potentialPrice = currentPrice - minProfit; // 0,0,0,4,0
+
+        maxProfit = Math.max(maxProfit, potentialPrice) // 0,0,0,4,4
+        console.log('maxProfit', maxProfit)
+
+    }
+    return maxProfit;
+}
+
+const prices = [7, 4, 2, 6, 4]
+const profit = maxProfit(prices)
+console.log("Maximum profit:", profit)
