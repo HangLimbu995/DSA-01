@@ -66,9 +66,9 @@
 // // console.log(newMyArray.shift(1))
 // // console.log('delete by index', newMyArray.deleteByIndex(0))
 
-// create a myFunction class 
+// create a myFunction class
 
-// and construct this.string = '' 
+// and construct this.string = ''
 // push str in the this.string
 
 // class myFunction {
@@ -139,11 +139,11 @@
 // chunk([1,2,3,4,5,6,7,8,9], 2) ----> [[1,2],[3,4],[5,6],[7,8],[9]]
 
 // 1. Create an empty array to hold the chunks called 'chunks'
-// 2. Set a starting index to keep track of where we are in the original array. 
-// 3. Loop through the original array as  long as the index hasn't reached the end. 
+// 2. Set a starting index to keep track of where we are in the original array.
+// 3. Loop through the original array as  long as the index hasn't reached the end.
 // 4. Extract a chunk of the desired size from the original array.
 // 5. Add the extracted chunk to the 'chunked' array
-// 6. Move the index forward by the chunk size to get to the next chunk. 
+// 6. Move the index forward by the chunk size to get to the next chunk.
 // 7. Return the final array of chunks
 
 // const chunkedArr = (arr, size) => {
@@ -176,16 +176,16 @@
 
 // console.log(twosum([1, 2, 3, 4, 5, 6, 7, 8, 9], 10))
 
-
+// ##################################
 //  MaxProfit
 
-// array of prices = [5,2,3,7,9] earnings every day 
+// array of prices = [5,2,3,7,9] earnings every day
 // get the max profit from this array
 // first lets do minProfit = prices[0]
 // maxProfit  = 0
 
 // now loop thorough prices
-// get current prices 
+// get current prices
 // update minprice with mathmin
 // get potential price which is current price  - minprice -- this is potential earnings
 
@@ -193,24 +193,244 @@
 
 // returh maxProfit
 
-const maxProfit = prices => {
-    let minProfit = prices[0]
-    let maxProfit = 0;
+// const maxProfit = prices => {
+//     let minProfit = prices[0]
+//     let maxProfit = 0;
 
-    for (let i = 0; i < prices.length; i++) {
-        const currentPrice = prices[i] // 7,4,2,6,4
+//     for (let i = 0; i < prices.length; i++) {
+//         const currentPrice = prices[i] // 7,4,2,6,4
 
-        minProfit = Math.min(minProfit, currentPrice);// 7,4,2,2,2
+//         minProfit = Math.min(minProfit, currentPrice);// 7,4,2,2,2
 
-        const potentialPrice = currentPrice - minProfit; // 0,0,0,4,0
+//         const potentialPrice = currentPrice - minProfit; // 0,0,0,4,0
 
-        maxProfit = Math.max(maxProfit, potentialPrice) // 0,0,0,4,4
-        console.log('maxProfit', maxProfit)
+//         maxProfit = Math.max(maxProfit, potentialPrice) // 0,0,0,4,4
+//         console.log('maxProfit', maxProfit)
 
-    }
-    return maxProfit;
-}
+//     }
+//     return maxProfit;
+// }
 
-const prices = [7, 4, 2, 6, 4]
-const profit = maxProfit(prices)
-console.log("Maximum profit:", profit)
+// const prices = [7, 4, 2, 6, 4]
+// const profit = maxProfit(prices)
+// console.log("Maximum profit:", profit)
+
+// #####################################
+// INDEX.JS
+// const studentsDatabase = ['jordan', 'erick', 'jhon', 'michal']
+
+// // find students with give name from this data
+// const findStudent = (allStudents, studentName) => {
+//     return allStudents.map(student => {
+//         student === studentName ? console.log(`Found ${studentName}`) : null
+//     })
+// }
+// findStudent(studentsDatabase, 'michal')
+
+// // merge sort of studnets
+// function mergeSort(arr) {
+//     if (arr.length <= 1) return arr;
+
+//     const mid = Math.floor(arr.length / 2)
+//     const left = mergeSort(arr.slice(0, mid))
+//     const right = mergeSort(arr.slice(mid))
+
+//     return (left, right)
+// }
+
+// const newMergSort = new mergeSort()
+// console.log(mergeSort(1, 2, 5, 3, 6, 2, 7))
+
+// ################################3
+// linkList.js
+
+// This is "SINGLY LINKED LIST" implementation in JAVASCRIPT
+
+// class Node {
+//     constructor(value) {
+//         this.head = value;
+//         this.next = null;
+//     }
+// }
+
+// class linkedList {
+//     constructor(value) {
+//         this.head = new Node(value);
+//         this.tail = this.head;
+//         this.length = 1;
+//     }
+
+//     push(value) {
+//         let newNode = new Node(value);
+
+//         if (!this.head) {
+//             this.head = newNode;
+//             this.tail = newNode;
+//         }
+
+//         this.tail.next = newNode;
+//         this.tail = newNode;
+//         this.length++;
+//     }
+
+//     pop() {
+//         if (!this.head) {
+//             return null
+//         }
+
+//         let prev = this.head
+//         let temp = this.head;
+
+//         while (temp.next) {
+//             prev = temp;
+//             temp = prev.next;
+//         }
+
+//         this.tail = prev;
+//         this.tail.next = null;
+//         this.length--;
+
+//         if (this.length === 0) {
+//             this.head = null;
+//             this.tail = null;
+//         }
+//         return temp;
+//     }
+
+//     unshift(value) {
+//         let newNode = new Node(value);
+
+//         if (!this.head) {
+//             this.head = newNode;
+//             this.tail = newNode;
+//         }
+
+//         newNode.next = this.head;
+//         this.head = newNode;
+//         this.length++;
+
+//         return this;
+//     }
+
+//     shift() {
+//         if (!this.head) {
+//             return null;
+//         }
+
+//         let temp = this.head;
+//         this.head = this.head.next;
+//         this.length--;
+
+//         return this;
+//     }
+
+//     getfirst() {
+//         if (!this.head) {
+//             return null;
+//         }
+//         return this.head;
+//     }
+
+//     getlast() {
+//         if (!this.head) {
+//             return null;
+//         }
+
+//         let temp = this.head;
+
+//         while (temp) {
+//             if (!temp.next) {
+//                 return temp;
+//             }
+//             temp = temp.next;
+//         }
+//     }
+
+//     get(index) {
+//         if (!this.head) {
+//             return null;
+//         }
+
+//         let temp = this.head;
+//         let counter = 0;
+
+//         while (temp) {
+//             if (counter === index) {
+//                 return temp;
+//             }
+//             temp = temp.next;
+//             counter++;
+//         }
+//     }
+
+//     set(index, value) {
+
+//         let newNode = new Node(value)
+
+//         if (!this.head) {
+//             this.head = newNode;
+//             this.tail = newNode;
+//         }
+
+//         let temp = this.get(index)
+
+//         if (temp) {
+//             temp.value = value
+//             return true;
+//         }
+
+//         return false;
+//     }
+
+//     insert(index, value) {
+//         if (index === 0) {
+//             return this.unshift(value)
+//         }
+
+//         if (index === this.length) {
+//             return this.push(value)
+//         }
+
+//         let newNode = new Node(value)
+
+//         if (!this.head) {
+//             this.head = newNode;
+//             this.tail = newNode;
+//         }
+
+//         let temp = this.get(index - 1);
+
+//         newNode.next = temp.next;
+//         temp.next = newNode;
+//         this.length++;
+//         return true;
+//     }
+
+//     size() {
+//         if (!this.head) return null;
+
+//         return this.length;
+//     }
+
+//     clear() {
+//         this.head = null;
+//         this.tail = null;
+//         this.length = 0;
+//         return this;
+//     }
+// }
+
+// const newLinkedList = new linkedList(1)
+// newLinkedList.push(2)
+// newLinkedList.push(5)
+// // newLinkedList.pop()
+// newLinkedList.unshift(12)
+// // newLinkedList.shift()
+// console.log('frist', newLinkedList.getfirst())
+// console.log('last', newLinkedList.getlast())
+// console.log('get index', newLinkedList.get(2))
+// console.log('set index', newLinkedList.set(1, 10))
+// console.log('insert', newLinkedList.insert(0, 10))
+// console.log('size', newLinkedList.size())
+// console.log('clear', newLinkedList.clear())
+// console.log(newLinkedList)
