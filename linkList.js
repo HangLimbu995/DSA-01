@@ -227,6 +227,7 @@ class DoublyLinkedList {
         this.length = 1;
     }
 
+
     push(value) {
         const newNode = new Node(value);
         if (!this.head) {
@@ -239,9 +240,87 @@ class DoublyLinkedList {
         this.tail = newNode;
 
         this.length++;
+
+        return newNode;
+    }
+
+    pop() {
+
+        if (this.length === 0) {
+            return undefined;
+        }
+
+        if (this.length === 1) {
+            this.head = null;
+            this.tail = null;
+        }
+
+
+        let temp = this.tail;
+        this.tail = this.tail.prev;
+        this.tail.next = null;
+        temp.prev = null;
+        this.length--;
         return this;
+    }
+
+    unshift(value) {
+        let newNode = new Node(value);
+
+        if (this.length === 0) {
+            this.head = newNode;
+            this.tail = newNode;
+        }
+
+        newNode.next = this.head;
+        this.head.prev = newNode;
+        this.head = newNode;
+        this.length++;
+        return this;
+    }
+
+    shift() {
+        if (this.length === 0) {
+            return undefined;
+        }
+
+        let temp = this.head.next;
+
+        if (this.length === 1) {
+            this.head = null;
+            this.tail = null;
+        }
+
+        this.head.next = null;
+        temp.prev = null;
+        this.head = temp;
+        this.length--;
+        return this;
+    }
+
+    reverse() {
+        let node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+        let prev = null;
+        let next;
+
+        for (let i = 0; i < this.length; i++) {
+            next = node.next;
+            node.next = prev;
+            node.prev = next;
+            prev = node;
+            node = next;
+        }
+        return this;
+
     }
 }
 
 let myDoublyLinkedList = new DoublyLinkedList(0);
 console.log(myDoublyLinkedList.push(1))
+console.log(myDoublyLinkedList.push(5))
+// console.log('pop is', myDoublyLinkedList.pop())
+console.log('unshift is', myDoublyLinkedList.unshift(12))
+// console.log('shift is', myDoublyLinkedList.shift())
+console.log('revers is', myDoublyLinkedList.reverse())
