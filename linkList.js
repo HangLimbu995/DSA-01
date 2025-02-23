@@ -324,3 +324,6 @@ console.log(myDoublyLinkedList.push(5))
 console.log('unshift is', myDoublyLinkedList.unshift(12))
 // console.log('shift is', myDoublyLinkedList.shift())
 console.log('revers is', myDoublyLinkedList.reverse())
+
+
+//  STACK & QUEUE 2.45.34
