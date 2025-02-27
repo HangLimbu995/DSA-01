@@ -155,30 +155,87 @@
 //     return stack.length === 0
 // }
 
-const isValidParenthesis = str => {
-    let stack = [];
+// const isValidParenthesis = str => {
+//     let stack = [];
 
-    const brackets = {
-        "(": ")",
-        "{": "}",
-        "[": "]",
-    }
+//     const brackets = {
+//         "(": ")",
+//         "{": "}",
+//         "[": "]",
+//     }
 
-    for (let char of str) {
-        if (brackets[char]) {
-            stack.push(char)
-        } else {
-            const top = stack.pop()
+//     for (let char of str) {
+//         if (brackets[char]) {
+//             stack.push(char)
+//         } else {
+//             const top = stack.pop()
 
-            if (!top || brackets[top] !== char) {
-                return false;
-            }
-        }
-    }
-    return stack.length === 0;
-}
+//             if (!top || brackets[top] !== char) {
+//                 return false;
+//             }
+//         }
+//     }
+//     return stack.length === 0;
+// }
 
-console.log(isValidParenthesis("(){}[]")) // true
-console.log(isValidParenthesis("([])]")) // false
-console.log(isValidParenthesis("()")) // true
-console.log(isValidParenthesis("(")) // false
+// console.log(isValidParenthesis("(){}[]")) // true
+// console.log(isValidParenthesis("([])]")) // false
+// console.log(isValidParenthesis("()")) // true
+// console.log(isValidParenthesis("(")) // false
+
+// function reverseWord(word) {
+//     return word.split("").reverse().join("");
+// }
+// //  console.log(reverseWord("hello")) // olleh
+
+// function reverseString(str) {
+//     let reversedString = []
+//     let reversedStr = str.split(' ')
+//     for (let str of reversedStr) {
+//         const reversedWord = reverseWord(str)
+//         reversedString.push(reversedWord)
+
+//     }
+//     return reversedString.reverse().join(' ')
+// }
+
+// from HuXn
+// function reverseString(str) {
+//     const stack = [];
+
+//     for (let char of str) {
+//         stack.push(char);
+//     }
+
+//     let reversedStr = "";
+
+//     while (stack.length > 0) {
+//         reversedStr += stack.pop();
+//     }
+
+//     return reversedStr;
+// }
+
+
+// From ChatGpt
+// function reverseString(str) {
+//     let arr = str.split(''); // Convert string to an array of characters (strings are immutable in JS).
+//     let left = 0;
+//     let right = arr.length - 1;
+
+//     // Swap characters at left and right until the pointers meet in the middle
+//     while (left < right) {
+//         // Swap characters
+//         let temp = arr[left];
+//         arr[left] = arr[right];
+//         arr[right] = temp;
+
+//         left++;
+//         right--;
+//     }
+
+//     return arr.join(''); // Join array back into a string;
+// }
+
+// const reversedString = reverseString("hello world hang")
+// console.log(reversedString); // output: "dlrow olleh"
